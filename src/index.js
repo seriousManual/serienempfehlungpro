@@ -4,8 +4,8 @@ import App from './App';
 
 import './index.css';
 
-fetch('http://serienempfehlung.de/', {mode: 'no-cors'})
-  .then(response => response.body)
+fetch('/shows')
+  .then(response => response.json())
   .then(body => console.log(body))
 
 function render(shows) {

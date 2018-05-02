@@ -2,8 +2,8 @@ const fetch = require('node-fetch')
 const express = require('express')
 
 express()
-  .get('/', async (req, res, next) => res.json(await getShows()))
-  .listen(3002)
+  .get('/shows', async (req, res, next) => res.json(await getShows()))
+  .listen(3001)
 
 async function getShows() {
   const showsText = await fetch('http://serienempfehlung.de', {
