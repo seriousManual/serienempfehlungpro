@@ -3,3 +3,12 @@ body {
   padding: 10px;
   font-family: monospace;
 }
+
+.active {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: underline;
+  cursor: pointer;
+}
