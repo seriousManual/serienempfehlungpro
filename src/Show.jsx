@@ -4,10 +4,8 @@ export default function Show(props) {
   const {title, faved} = props
 
   return (
-    <div>
-      {title}
-      {' '}
-      {faved ? '*' : ''}
-    </div>
+    <React.Fragment>
+      {title} {faved ? '*' : ''} <br />
+    </React.Fragment>
   )
 }

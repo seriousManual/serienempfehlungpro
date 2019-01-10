@@ -4,7 +4,7 @@ export default function Buttons(props) {
   const {order, filter, onOrder, onFilter} = props
 
   return (
-    <div>
+    <React.Fragment>
       sortieren: {' '}
         <a onClick={() => onOrder(null)} className={order === null ? 'active' : ''}>ohne</a>{' '}
         <a onClick={() => onOrder('alpha')} className={order === 'alpha' ? 'active' : ''}>alphabetisch aufwärts</a>{' '}
@@ -14,8 +14,8 @@ export default function Buttons(props) {
       <br />
 
       filter:{' '}
-        <a onClick={() => onFilter('mustsee')} className={filter === 'mustsee' ? 'active' : ''}>nur must-see</a>{' '}
-        <a onClick={() => onFilter(null)} className={filter === null ? 'active' : ''}>alle</a><br />{' '}
-    </div>
+        <a onClick={() => onFilter(null)} className={filter === null ? 'active' : ''}>alle</a>{' '}
+        <a onClick={() => onFilter('mustsee')} className={filter === 'mustsee' ? 'active' : ''}>nur must-see</a><br/>{' '}
+    </React.Fragment>
   )
 }

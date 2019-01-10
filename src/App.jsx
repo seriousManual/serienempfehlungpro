@@ -15,7 +15,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         powered by <a href="http://www.serienempfehlung.de">serienempfehlung.de</a><br />
         <br />
         <Buttons 
@@ -27,7 +27,7 @@ class App extends Component {
         <br />
 
         {this._getShows().map(entry => <Show key={entry.id} {...entry} />)}
-      </div>
+      </React.Fragment>
     );
   }
 
