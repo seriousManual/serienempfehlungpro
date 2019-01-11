@@ -1,16 +1,20 @@
 const fetch = require('node-fetch')
 const express = require('express')
 
+const port = process.env.PORT || 3001;
+
 express()
+  .use(express.static('build'))
   .get('/shows', async (req, res, next) => res.json(await getShows()))
-  .listen(3001)
+  .listen(port, '0.0.0.0', () => {
+    console.log('running on ' + port);
+  });
 
 async function getShows() {
-  const showsText = await fetch('http://serienempfehlung.de', {
-    // headers: {'User-Agent': 'serienempfehlungPRO.de'}
-  }).then(res => res.text())
+  const showsResult = await fetch('http://serienempfehlung.de', {headers: {'User-Agent': 'serienempfehlung-pro'}});
+  const shows = await showsResult.text();
 
-  return showsText.split('\n')
+  return shows.split('\n')
     .slice(1)
     .filter(Boolean)
     .map((entry, index) => {
